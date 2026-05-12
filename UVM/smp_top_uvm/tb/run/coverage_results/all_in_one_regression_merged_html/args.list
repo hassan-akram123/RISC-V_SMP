@@ -1,0 +1,4 @@
+-html
+-htmldir
+coverage_results/all_in_one_regression_merged_html
+coverage_results/all_in_one_regression_merged.ucdb

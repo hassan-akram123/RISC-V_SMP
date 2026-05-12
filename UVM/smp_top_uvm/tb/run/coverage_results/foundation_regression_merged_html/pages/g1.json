@@ -1,0 +1,10 @@
+var g_data = {
+g24148:[{dummy:0},
+{name:'smp_cg',f:1,type:1,id:24153,tb:'43',h:'21',m:'22',hp:'48.83%',cov:['59.93%','Y'],g:'100.00%',gp:['59.93%','Y'],opts:[[],['merge_instance','auto(true)']],parent:'24148'},
+{name:'\\/smp_top_uvm_pkg::smp_coverage::smp_cg ',f:1,type:2,id:24162,tb:'43',h:'21',m:'22',hp:'48.83%',cov:['59.93%','Y'],g:'100.00%',gp:['59.93%','Y'],opts:[[],['per_instance','true']],cvg:'smp_cg',parent:'24153'}],
+g25537:[{dummy:0},
+{name:'smp_cg',f:1,type:1,id:25542,tb:'43',h:'21',m:'22',hp:'48.83%',cov:['59.93%','Y'],g:'100.00%',gp:['59.93%','Y'],opts:[[],['merge_instance','true']],parent:'25537'},
+{name:'\\/smp_top_uvm_pkg::smp_coverage::smp_cg ',f:1,type:2,id:25551,tb:'43',h:'21',m:'22',hp:'48.83%',cov:['59.93%','Y'],g:'100.00%',gp:['59.93%','Y'],opts:[[],['per_instance','true']],cvg:'smp_cg',parent:'25542'}],
+dummyEnd:0
+};
+processCovergroupsData(g_data);

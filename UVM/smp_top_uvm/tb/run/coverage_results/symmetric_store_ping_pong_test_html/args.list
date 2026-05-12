@@ -1,0 +1,4 @@
+-html
+-htmldir
+coverage_results/symmetric_store_ping_pong_test_html
+coverage_results/symmetric_store_ping_pong_test.ucdb

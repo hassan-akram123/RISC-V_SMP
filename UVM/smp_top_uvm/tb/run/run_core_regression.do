@@ -1,0 +1,1 @@
+do run_bringup_regression.do

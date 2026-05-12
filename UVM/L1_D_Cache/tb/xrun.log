@@ -1,0 +1,34 @@
+xrun(64): 23.09-s006: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.09-s006: Started on Apr 09, 2026 at 13:50:26 PKT
+xrun
+	-f run.f
+		-uvmhome /home/cc/mnt/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d
+		-incdir .
+		-incdir ./rtl
+		-incdir ./tb
+		./tb/behav_model.sv
+		./rtl/L1_Dcache.sv
+		./rtl/L1_Dcache_Controller.sv
+		./rtl/dcache_subsystem.sv
+		./tb/cpu_if.sv
+		./tb/mem_if.sv
+		./tb/dcache_pkg.sv
+		./tb/hw_top.sv
+		./tb/tb_top.sv
+		-timescale 1ns/1ps
+		+UVM_TESTNAME=dcache_base_test
+		+UVM_VERBOSITY=UVM_LOW
+
+   User defined plus("+") options:
+	+UVM_VERBOSITY=UVM_LOW
+
+xrun: *E,FILEMIS: Cannot find the provided file ./tb/behav_model.sv.
+xrun: *E,FILEMIS: Cannot find the provided file ./rtl/L1_Dcache.sv.
+xrun: *E,FILEMIS: Cannot find the provided file ./rtl/L1_Dcache_Controller.sv.
+xrun: *E,FILEMIS: Cannot find the provided file ./rtl/dcache_subsystem.sv.
+xrun: *E,FILEMIS: Cannot find the provided file ./tb/cpu_if.sv.
+xrun: *E,FILEMIS: Cannot find the provided file ./tb/mem_if.sv.
+xrun: *E,FILEMIS: Cannot find the provided file ./tb/dcache_pkg.sv.
+xrun: *E,FILEMIS: Cannot find the provided file ./tb/hw_top.sv.
+xrun: *E,FILEMIS: Cannot find the provided file ./tb/tb_top.sv.
+TOOL:	xrun(64)	23.09-s006: Exiting on Apr 09, 2026 at 13:50:27 PKT  (total: 00:00:01)

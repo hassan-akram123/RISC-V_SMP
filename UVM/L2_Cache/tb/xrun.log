@@ -1,0 +1,33 @@
+xrun(64): 23.09-s006: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.09-s006: Started on Apr 11, 2026 at 16:31:36 PKT
+xrun
+	-f run.f
+		-uvmhome /home/cc/mnt/XCELIUM2309/tools/methodology/UVM/CDNS-1.1d
+		-incdir .
+		-incdir ./rtl
+		-incdir ./tb
+		-incdir ./sv
+		./tb/behav_model.sv
+		./rtl/L2_Cache.sv
+		./rtl/L2_Cache_Controller.sv
+		./tb/l2_subsystem.sv
+		./sv/l2_snoop_if.sv
+		./sv/l2_pkg.sv
+		./tb/hw_top.sv
+		./tb/tb_top.sv
+		-timescale 1ns/1ps
+		+UVM_TESTNAME=l2_mixed_test
+		+UVM_VERBOSITY=UVM_LOW
+
+   User defined plus("+") options:
+	+UVM_VERBOSITY=UVM_LOW
+
+xrun: *E,FILEMIS: Cannot find the provided file ./tb/behav_model.sv.
+xrun: *E,FILEMIS: Cannot find the provided file ./rtl/L2_Cache.sv.
+xrun: *E,FILEMIS: Cannot find the provided file ./rtl/L2_Cache_Controller.sv.
+xrun: *E,FILEMIS: Cannot find the provided file ./tb/l2_subsystem.sv.
+xrun: *E,FILEMIS: Cannot find the provided file ./sv/l2_snoop_if.sv.
+xrun: *E,FILEMIS: Cannot find the provided file ./sv/l2_pkg.sv.
+xrun: *E,FILEMIS: Cannot find the provided file ./tb/hw_top.sv.
+xrun: *E,FILEMIS: Cannot find the provided file ./tb/tb_top.sv.
+TOOL:	xrun(64)	23.09-s006: Exiting on Apr 11, 2026 at 16:31:36 PKT  (total: 00:00:00)

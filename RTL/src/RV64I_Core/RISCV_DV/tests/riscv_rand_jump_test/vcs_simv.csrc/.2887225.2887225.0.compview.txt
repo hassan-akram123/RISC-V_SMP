@@ -1,0 +1,9 @@
+{"vcs1":{"timestamp_begin":1758114321.438835669, "rt":14.15, "ut":13.67, "st":0.38}}
+{"vcselab":{"timestamp_begin":1758114335.675569123, "rt":0.19, "ut":0.12, "st":0.06}}
+{"link":{"timestamp_begin":1758114335.928824107, "rt":0.68, "ut":0.40, "st":0.27}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1758114320.970181187}
+{"VCS_COMP_START_TIME": 1758114320.970181187}
+{"VCS_COMP_END_TIME": 1758114336.682594093}
+{"VCS_USER_OPTIONS": "-file /home/qamar/Documents/rtl/Diriyah-3/riscv-dv/vcs.compile.option.f +incdir+/home/qamar/Documents/rtl/Diriyah-3/riscv-dv/target/rv32i +incdir+/home/qamar/Documents/rtl/Diriyah-3/riscv-dv/user_extension +vcs+lic+wait -f /home/qamar/Documents/rtl/Diriyah-3/riscv-dv/files.f -full64 -l /home/qamar/Documents/rtl/Diriyah-3/riscv-dv/out_2025-09-17/riscv_rand_jump_test/compile.log -LDFLAGS -Wl,--no-as-needed -CFLAGS --std=c99 -fno-extended-identifiers -Mdir=/home/qamar/Documents/rtl/Diriyah-3/riscv-dv/out_2025-09-17/riscv_rand_jump_test/vcs_simv.csrc -o /home/qamar/Documents/rtl/Diriyah-3/riscv-dv/out_2025-09-17/riscv_rand_jump_test/vcs_simv"}
+{"vcs1": {"peak_mem": 477604}}
+{"vcselab": {"peak_mem": 158232}}

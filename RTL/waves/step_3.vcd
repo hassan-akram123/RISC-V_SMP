@@ -1,0 +1,848 @@
+$date
+Fri Jan  9 12:58:32 2026
+$end
+$version
+Riviera-PRO Version 2023.04.112.8911
+$end
+$timescale
+1 ps
+$end
+
+$scope module tb_snoop_bus_arbiter_step3 $end
+$var reg 1 ! clk $end
+$var reg 1 " rst_n $end
+$var reg 1 # i0_req_valid $end
+$var reg 1 $ i0_req_ready $end
+$var reg 3 % i0_req_cmd [2:0] $end
+$var reg 32 & i0_req_addr [31:0] $end
+$var reg 2 ' i0_req_src [1:0] $end
+$var reg 1 ( i1_req_valid $end
+$var reg 1 ) i1_req_ready $end
+$var reg 3 * i1_req_cmd [2:0] $end
+$var reg 32 + i1_req_addr [31:0] $end
+$var reg 2 , i1_req_src [1:0] $end
+$var reg 1 - d0_req_valid $end
+$var reg 1 . d0_req_ready $end
+$var reg 3 / d0_req_cmd [2:0] $end
+$var reg 32 0 d0_req_addr [31:0] $end
+$var reg 2 1 d0_req_src [1:0] $end
+$var reg 1 2 d1_req_valid $end
+$var reg 1 3 d1_req_ready $end
+$var reg 3 4 d1_req_cmd [2:0] $end
+$var reg 32 5 d1_req_addr [31:0] $end
+$var reg 2 6 d1_req_src [1:0] $end
+$var reg 1 7 bus_req_valid $end
+$var reg 3 8 bus_req_cmd [2:0] $end
+$var reg 32 9 bus_req_addr [31:0] $end
+$var reg 2 : bus_req_src [1:0] $end
+$var reg 1 ; d0_snp_rsp_valid $end
+$var reg 1 < d0_snp_rsp_hit $end
+$var reg 1 = d0_snp_rsp_has_data $end
+$var reg 1 > d0_snp_rsp_ack $end
+$var reg 2 ? d0_snp_rsp_state [1:0] $end
+$var reg 1 @ d1_snp_rsp_valid $end
+$var reg 1 A d1_snp_rsp_hit $end
+$var reg 1 B d1_snp_rsp_has_data $end
+$var reg 1 C d1_snp_rsp_ack $end
+$var reg 2 D d1_snp_rsp_state [1:0] $end
+$var reg 1 E l2_snp_valid $end
+$var reg 1 F l2_snp_hit $end
+$var reg 1 G l2_snp_has_data $end
+$var reg 1 H l2_snp_ack $end
+$var reg 1 I d0_sup_valid $end
+$var reg 1 J d0_sup_ready $end
+$var reg 64 K d0_sup_data [63:0] $end
+$var reg 3 L d0_sup_beat [2:0] $end
+$var reg 1 M d0_sup_last $end
+$var reg 1 N d1_sup_valid $end
+$var reg 1 O d1_sup_ready $end
+$var reg 64 P d1_sup_data [63:0] $end
+$var reg 3 Q d1_sup_beat [2:0] $end
+$var reg 1 R d1_sup_last $end
+$var reg 1 S l2_sup_valid $end
+$var reg 1 T l2_sup_ready $end
+$var reg 64 U l2_sup_data [63:0] $end
+$var reg 3 V l2_sup_beat [2:0] $end
+$var reg 1 W l2_sup_last $end
+$var reg 1 X bus_dat_valid $end
+$var reg 2 Y bus_dat_dst [1:0] $end
+$var reg 64 Z bus_dat_data [63:0] $end
+$var reg 3 [ bus_dat_beat [2:0] $end
+$var reg 1 \ bus_dat_last $end
+$var reg 1 ] i_bus_gnt_valid $end
+$var reg 2 ^ i_bus_gnt_dst [1:0] $end
+$var reg 1 _ i_bus_gnt_ok $end
+$var reg 1 ` d_bus_gnt_valid $end
+$var reg 2 a d_bus_gnt_dst [1:0] $end
+$var reg 32 b d_bus_gnt_addr [31:0] $end
+$var reg 2 c d_bus_gnt_state [1:0] $end
+$var reg 1 d d_bus_gnt_ok $end
+$var integer 32 e bcast_count $end
+$var integer 32 f cycle $end
+$var integer 32 g last_ack_cycle $end
+
+$scope module dut $end
+$var wire 1 h clk $end
+$var wire 1 i rst_n $end
+$var wire 1 j i0_req_valid $end
+$var wire 3 k i0_req_cmd [2:0] $end
+$var wire 32 l i0_req_addr [31:0] $end
+$var wire 2 m i0_req_src [1:0] $end
+$var wire 1 n i1_req_valid $end
+$var wire 3 o i1_req_cmd [2:0] $end
+$var wire 32 p i1_req_addr [31:0] $end
+$var wire 2 q i1_req_src [1:0] $end
+$var wire 1 r d0_req_valid $end
+$var wire 3 s d0_req_cmd [2:0] $end
+$var wire 32 t d0_req_addr [31:0] $end
+$var wire 2 u d0_req_src [1:0] $end
+$var wire 1 v d1_req_valid $end
+$var wire 3 w d1_req_cmd [2:0] $end
+$var wire 32 x d1_req_addr [31:0] $end
+$var wire 2 y d1_req_src [1:0] $end
+$var wire 1 z d0_snp_rsp_valid $end
+$var wire 1 { d0_snp_rsp_hit $end
+$var wire 2 | d0_snp_rsp_state [1:0] $end
+$var wire 1 } d0_snp_rsp_has_data $end
+$var wire 1 ~ d0_snp_rsp_ack $end
+$var wire 1 !! d1_snp_rsp_valid $end
+$var wire 1 "! d1_snp_rsp_hit $end
+$var wire 2 #! d1_snp_rsp_state [1:0] $end
+$var wire 1 $! d1_snp_rsp_has_data $end
+$var wire 1 %! d1_snp_rsp_ack $end
+$var wire 1 &! l2_snp_valid $end
+$var wire 1 '! l2_snp_hit $end
+$var wire 1 (! l2_snp_has_data $end
+$var wire 1 )! l2_snp_ack $end
+$var wire 1 *! d0_sup_valid $end
+$var wire 64 +! d0_sup_data [63:0] $end
+$var wire 3 ,! d0_sup_beat [2:0] $end
+$var wire 1 -! d0_sup_last $end
+$var wire 1 .! d1_sup_valid $end
+$var wire 64 /! d1_sup_data [63:0] $end
+$var wire 3 0! d1_sup_beat [2:0] $end
+$var wire 1 1! d1_sup_last $end
+$var wire 1 2! l2_sup_valid $end
+$var wire 64 3! l2_sup_data [63:0] $end
+$var wire 3 4! l2_sup_beat [2:0] $end
+$var wire 1 5! l2_sup_last $end
+$var reg 1 6! i0_req_ready $end
+$var reg 1 7! i1_req_ready $end
+$var reg 1 8! d0_req_ready $end
+$var reg 1 9! d1_req_ready $end
+$var reg 1 :! bus_req_valid $end
+$var reg 3 ;! bus_req_cmd [2:0] $end
+$var reg 32 <! bus_req_addr [31:0] $end
+$var reg 2 =! bus_req_src [1:0] $end
+$var reg 1 >! d0_sup_ready $end
+$var reg 1 ?! d1_sup_ready $end
+$var reg 1 @! l2_sup_ready $end
+$var reg 1 A! bus_dat_valid $end
+$var reg 2 B! bus_dat_dst [1:0] $end
+$var reg 64 C! bus_dat_data [63:0] $end
+$var reg 3 D! bus_dat_beat [2:0] $end
+$var reg 1 E! bus_dat_last $end
+$var reg 1 F! i_bus_gnt_valid $end
+$var reg 2 G! i_bus_gnt_dst [1:0] $end
+$var reg 1 H! i_bus_gnt_ok $end
+$var reg 1 I! d_bus_gnt_valid $end
+$var reg 2 J! d_bus_gnt_dst [1:0] $end
+$var reg 32 K! d_bus_gnt_addr [31:0] $end
+$var reg 2 L! d_bus_gnt_state [1:0] $end
+$var reg 1 M! d_bus_gnt_ok $end
+$var reg 2 N! state $end
+$var reg 2 O! state_n $end
+$var reg 2 P! rr_ptr [1:0] $end
+$var reg 2 Q! rr_ptr_n [1:0] $end
+$var reg 1 R! have_winner $end
+$var reg 2 S! winner [1:0] $end
+$var reg 3 T! win_cmd [2:0] $end
+$var reg 32 U! win_addr [31:0] $end
+$var reg 2 V! win_src [1:0] $end
+$var reg 2 W! active_winner [1:0] $end
+$var reg 3 X! active_cmd [2:0] $end
+$var reg 32 Y! active_addr [31:0] $end
+$var reg 2 Z! active_src [1:0] $end
+$var reg 1 [! ack_d0_seen $end
+$var reg 1 \! ack_d1_seen $end
+$var reg 1 ]! ack_l2_seen $end
+$var reg 1 ^! any_hit_reg $end
+$var reg 1 _! any_has_data_reg $end
+
+$scope function pick_winner $end
+$upscope $end
+
+$upscope $end
+
+
+$scope task pulse_d0_rsp $end
+$upscope $end
+
+
+$scope task pulse_d1_rsp $end
+$upscope $end
+
+
+$scope task pulse_l2_rsp $end
+$upscope $end
+
+
+$scope task @FORK#135_0@ $end
+$upscope $end
+
+
+$scope task @FORK#136_1@ $end
+$upscope $end
+
+
+$scope task @FORK#137_2@ $end
+$upscope $end
+
+
+$scope task @FORK#144_3@ $end
+$upscope $end
+
+
+$scope task @FORK#145_4@ $end
+$upscope $end
+
+
+$scope task @FORK#146_5@ $end
+$upscope $end
+
+$upscope $end
+
+$enddefinitions $end
+$dumpvars
+0!
+0"
+0#
+0$
+b0 %
+b0 &
+b0 '
+0(
+0)
+b0 *
+b0 +
+b0 ,
+0-
+0.
+b0 /
+b0 0
+b0 1
+02
+03
+b0 4
+b0 5
+b0 6
+07
+b0 8
+b0 9
+b0 :
+0;
+0<
+0=
+0>
+b0 ?
+0@
+0A
+0B
+0C
+b0 D
+0E
+0F
+0G
+0H
+0I
+0J
+b0 K
+b0 L
+0M
+0N
+0O
+b0 P
+b0 Q
+0R
+0S
+0T
+b0 U
+b0 V
+0W
+0X
+b0 Y
+b0 Z
+b0 [
+0\
+0]
+b0 ^
+0_
+0`
+b0 a
+b0 b
+b0 c
+0d
+b0 e
+b0 f
+b11111111111111111111111111111111 g
+0h
+0i
+0j
+b0 k
+b0 l
+b0 m
+0n
+b0 o
+b0 p
+b0 q
+0r
+b0 s
+b0 t
+b0 u
+0v
+b0 w
+b0 x
+b0 y
+0z
+0{
+b0 |
+0}
+0~
+0!!
+0"!
+b0 #!
+0$!
+0%!
+0&!
+0'!
+0(!
+0)!
+0*!
+b0 +!
+b0 ,!
+0-!
+0.!
+b0 /!
+b0 0!
+01!
+02!
+b0 3!
+b0 4!
+05!
+06!
+07!
+08!
+09!
+0:!
+b0 ;!
+b0 <!
+b0 =!
+0>!
+0?!
+0@!
+0A!
+b0 B!
+b0 C!
+b0 D!
+0E!
+0F!
+b0 G!
+0H!
+0I!
+b0 J!
+b0 K!
+b0 L!
+0M!
+b0 N!
+b0 O!
+b0 P!
+b0 Q!
+0R!
+b0 S!
+b0 T!
+b0 U!
+b0 V!
+b0 W!
+b0 X!
+b0 Y!
+b0 Z!
+0[!
+0\!
+0]!
+0^!
+0_!
+$end
+#5000
+1!
+1h
+#10000
+0!
+0h
+#15000
+1!
+1h
+#20000
+0!
+0h
+#25000
+1!
+1h
+#30000
+0!
+0h
+#35000
+1!
+1h
+1"
+1i
+#40000
+0!
+0h
+#45000
+1!
+1h
+b1 f
+1-
+b1 /
+b110000000000000000000000000000 0
+12
+b10 4
+b1000000000000000000000000000000 5
+b1 6
+b1 y
+b1000000000000000000000000000000 x
+b10 w
+1v
+b110000000000000000000000000000 t
+b1 s
+1r
+1R!
+b10 S!
+b1 T!
+b110000000000000000000000000000 U!
+b1 O!
+#50000
+0!
+0h
+#55000
+1!
+1h
+b10 f
+b1 N!
+b10 O!
+1:!
+b1 ;!
+b110000000000000000000000000000 <!
+18!
+17
+b1 8
+b110000000000000000000000000000 9
+1.
+#60000
+0!
+0h
+#65000
+1!
+1h
+b1 e
+b11 f
+0-
+b10 N!
+b10 W!
+b1 X!
+b110000000000000000000000000000 Y!
+0r
+08!
+0:!
+b0 ;!
+b0 <!
+b11 S!
+b10 T!
+b1000000000000000000000000000000 U!
+b1 V!
+0.
+07
+b0 8
+b0 9
+#70000
+0!
+0h
+#75000
+1!
+1h
+b100 f
+#80000
+0!
+0h
+#85000
+1!
+1h
+b101 f
+1;
+1<
+b10 ?
+1>
+1~
+b10 |
+1{
+1z
+#90000
+0!
+0h
+#95000
+1!
+1h
+b101 g
+b110 f
+0;
+0>
+1E
+1F
+1H
+1^!
+1[!
+1)!
+1'!
+1&!
+0~
+0z
+#100000
+0!
+0h
+#105000
+1!
+1h
+b110 g
+b111 f
+0E
+0H
+1]!
+0)!
+0&!
+#110000
+0!
+0h
+#115000
+1!
+1h
+b1000 f
+#120000
+0!
+0h
+#125000
+1!
+1h
+b1001 f
+#130000
+0!
+0h
+#135000
+1!
+1h
+b1010 f
+1@
+1C
+1%!
+1!!
+#140000
+0!
+0h
+#145000
+1!
+1h
+b1010 g
+b1011 f
+0@
+0C
+1\!
+0%!
+0!!
+b0 O!
+b11 Q!
+#150000
+0!
+0h
+#155000
+1!
+1h
+b1100 f
+b0 N!
+b11 P!
+b1 O!
+b10 T!
+b1000000000000000000000000000000 U!
+b1 V!
+#160000
+0!
+0h
+#165000
+1!
+1h
+b1101 f
+b1 N!
+b10 O!
+1:!
+b10 ;!
+b1000000000000000000000000000000 <!
+b1 =!
+19!
+17
+b10 8
+b1000000000000000000000000000000 9
+b1 :
+13
+#170000
+0!
+0h
+#175000
+1!
+1h
+b10 e
+b1110 f
+02
+b10 N!
+b11 W!
+b10 X!
+b1000000000000000000000000000000 Y!
+b1 Z!
+0[!
+0\!
+0]!
+0^!
+0v
+09!
+0:!
+b0 ;!
+b0 <!
+b0 =!
+0R!
+b0 S!
+b0 T!
+b0 U!
+b0 V!
+03
+07
+b0 8
+b0 9
+b0 :
+#180000
+0!
+0h
+#185000
+1!
+1h
+b1111 f
+#190000
+0!
+0h
+#195000
+1!
+1h
+b10000 f
+1;
+1>
+1E
+1H
+1@
+1C
+1%!
+1!!
+1)!
+1&!
+1~
+1z
+#200000
+0!
+0h
+#205000
+1!
+1h
+b10000 g
+b10001 f
+0;
+0>
+0E
+0H
+0@
+0C
+1^!
+1[!
+1\!
+1]!
+0%!
+0!!
+0)!
+0&!
+0~
+0z
+b0 O!
+b0 Q!
+#210000
+0!
+0h
+#215000
+1!
+1h
+b10010 f
+b0 N!
+b0 P!
+#220000
+0!
+0h
+#225000
+1!
+1h
+b10011 f
+#230000
+0!
+0h
+#235000
+1!
+1h
+b10100 f
+#240000
+0!
+0h
+#245000
+1!
+1h
+b10101 f
+#250000
+0!
+0h
+#255000
+1!
+1h
+b10110 f
+#260000
+0!
+0h
+#265000
+1!
+1h
+b10111 f
+#270000
+0!
+0h
+#275000
+1!
+1h
+b11000 f
+#280000
+0!
+0h
+#285000
+1!
+1h
+b11001 f
+#290000
+0!
+0h
+#295000
+1!
+1h
+b11010 f
+#300000
+0!
+0h
+#305000
+1!
+1h
+b11011 f
+#310000
+0!
+0h
+#315000
+1!
+1h
+b11100 f
+#320000
+0!
+0h
+#325000
+1!
+1h
+b11101 f
+#330000
+0!
+0h
+#335000
+1!
+1h
+b11110 f
+#340000
+0!
+0h
+#345000
+1!
+1h
+b11111 f
+#350000
+0!
+0h
+#355000
+1!
+1h
+b100000 f
+#360000
+0!
+0h
+#365000
+1!
+1h
+b100001 f
+#370000
+0!
+0h
+#375000
+1!
+1h
+b100010 f
+#380000
+0!
+0h
+#385000
+1!
+1h
+b100011 f
+#390000
+0!
+0h
+#395000
+1!
+1h
+b100100 f
+#400000
+0!
+0h
+#405000
+1!
+1h
+b100101 f
+#410000
+0!
+0h
+#415000
+1!
+1h
+b100110 f
+#420000
+0!
+0h
+#425000
+1!
+1h
+b100111 f
+#430000
+0!
+0h
+#435000
+1!
+1h
+b101000 f
+#440000
+0!
+0h
+#445000
+1!
+1h

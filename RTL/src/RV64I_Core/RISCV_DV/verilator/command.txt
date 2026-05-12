@@ -1,0 +1,1 @@
+verilator  --timing --binary -Wall   --Wno-fatal   --top-module tb_adder_4bit   --cc --exe   --Wno-PROCASSINIT --Wno-SYNCASYNCNET --Wno-BLKSEQ   --Wno-WIDTHEXPAND --Wno-UNUSEDSIGNAL --Wno-UNUSEDPARAM --trace   -CFLAGS "-std=c++17" adder_4bit.v half_adder.v full_adder.v tb_adder_4bit.v

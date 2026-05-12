@@ -1,0 +1,5 @@
+Register file initialized from fib_rf.mem
+Loading default memory file: /mnt/c/Users/Done/Desktop/lab8/tests/riscv_arithmetic_basic_test/imem_0.mem
+Loading memory from tests/riscv_jump_stress_test/dmem_0.mem
+TOP.tb_top.tracer_inst.printbuffer_dumpline.unnamedblk1: Writing execution trace to trace_core_00000001.log
+- /mnt/c/Users/Done/Desktop/lab8/tb/tb_top.sv:144: Verilog $finish

@@ -1,0 +1,4 @@
+-html
+-htmldir
+coverage_results/dirty_eviction_writeback_test_html
+coverage_results/dirty_eviction_writeback_test.ucdb

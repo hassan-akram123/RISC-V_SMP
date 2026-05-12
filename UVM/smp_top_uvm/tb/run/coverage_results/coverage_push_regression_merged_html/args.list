@@ -1,0 +1,4 @@
+-html
+-htmldir
+coverage_results/coverage_push_regression_merged_html
+coverage_results/coverage_push_regression_merged.ucdb

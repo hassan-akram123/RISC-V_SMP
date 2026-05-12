@@ -1,0 +1,4 @@
+-html
+-htmldir
+coverage_results/coherence_writer_reader_regression_merged_html
+coverage_results/coherence_writer_reader_regression_merged.ucdb

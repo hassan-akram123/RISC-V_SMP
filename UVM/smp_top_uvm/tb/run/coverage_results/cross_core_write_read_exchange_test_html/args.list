@@ -1,0 +1,4 @@
+-html
+-htmldir
+coverage_results/cross_core_write_read_exchange_test_html
+coverage_results/cross_core_write_read_exchange_test.ucdb

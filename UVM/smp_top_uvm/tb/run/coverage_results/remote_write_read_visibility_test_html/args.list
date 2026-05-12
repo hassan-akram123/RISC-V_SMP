@@ -1,0 +1,4 @@
+-html
+-htmldir
+coverage_results/remote_write_read_visibility_test_html
+coverage_results/remote_write_read_visibility_test.ucdb

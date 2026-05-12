@@ -1,0 +1,32 @@
+Mostly yes.
+
+From the lint output, your Makefile is at least doing these parts correctly:
+- it is invoking Verilator in lint mode
+- it is using `../sim/filelist.f`
+- it is setting `tb_top` as the top module
+- it is passing `--timing` and reaching the actual RTL lint stage before failing fileciteturn18file1
+
+So for the **simulation/testbench flow**, the Makefile changes look fine.
+
+What is **not** okay yet is not really the Makefile. The current stop is from RTL/filelist issues:
+- duplicate tracer/common-cells sources in the filelist
+- the `rvfi_probes_o` connection width/type issue in `system_top.sv` at line 210
+- some PLIC width mismatches still showing up later in the log fileciteturn18file1turn18file4turn18file2
+
+One important thing I **cannot confirm from the lint log alone**:
+- whether your Makefile now builds `stm_smoke_test_stub.c` as the RAM image, or still builds the older `sw/test.S` flow
+
+Lint does not exercise the software-build part, so that part is still unknown from this log.
+
+So the practical answer is:
+
+- **Yes**, your Makefile changes are okay for getting into Verilator lint/build flow.
+- **No**, that does **not** mean the STM smoke-test firmware is active yet.
+- The current failure is still RTL/filelist-side, not Makefile-side.
+
+The next fixes should be:
+1. remove duplicate tracer copies of `cf_math_pkg`, `fifo_v3`, `sync`, and `lzc` from `filelist.f`
+2. fix the `rvfi_probes_o` connection in `system_top.sv`
+3. then rerun `make lint`
+
+After that, `make build` output will tell us whether the software side is actually using `stm_smoke_test_stub.c`.

@@ -1,0 +1,5 @@
+var g_db_data = [
+{dummy:0},
+{name:'smp_cg',f:1,type:6,id:24153,tb:'43',h:'24',m:'19',hp:'55.81%',cov:['66.96%','Y'],g:'100.00%',gp:['66.96%','Y'],opts:[[],['merge_instance','auto(true)']],hdlPath:'/smp_top_uvm_pkg/smp_coverage',parent:'24148'},
+{name:'smp_cg',f:1,type:6,id:25542,tb:'43',h:'24',m:'19',hp:'55.81%',cov:['66.96%','Y'],g:'100.00%',gp:['66.96%','Y'],opts:[[],['merge_instance','true']],hdlPath:'work.smp_top_uvm_pkg::smp_coverage',parent:'25537'}];
+processConsCovergroupsData(g_db_data);
