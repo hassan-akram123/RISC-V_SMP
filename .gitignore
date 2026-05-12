@@ -1,0 +1,12 @@
+
+# Simulation generated files
+**/tb/run/work/
+**/work/
+*.qpg
+*.wlf
+*.log
+*.jou
+*.pb
+*.vcd
+*.fst
+*.ucdb
