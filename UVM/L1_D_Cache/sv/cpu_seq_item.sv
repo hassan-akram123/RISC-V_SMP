@@ -1,8 +1,6 @@
 class dcache_cpu_seq_item extends uvm_sequence_item;
 
-  // ----------------------------------------
-  // request fields (randomized)
-  // ----------------------------------------
+
   rand logic [31:0] ldst_addr;
   rand logic        ldst_is_store;
   rand logic [63:0] ldst_wdata;
@@ -11,20 +9,20 @@ class dcache_cpu_seq_item extends uvm_sequence_item;
   // ----------------------------------------
   // bookkeeping fields (set by driver/monitor, not randomized)
   // ----------------------------------------
-  logic      [31:0] prev_addr;   // previous request address, used in constraints
+  logic      [31:0] prev_addr;  // previous request address, used in constraints
   logic      [63:0] ldst_rdata;  // captured response data
-  bit               is_hit;      // filled in by scoreboard
-  int               latency;     // cycles from valid to resp_valid
+  bit               is_hit;  // filled in by scoreboard
+  int               latency;  // cycles from valid to resp_valid
 
   `uvm_object_utils_begin(dcache_cpu_seq_item)
-    `uvm_field_int(ldst_addr,     UVM_ALL_ON)
+    `uvm_field_int(ldst_addr, UVM_ALL_ON)
     `uvm_field_int(ldst_is_store, UVM_ALL_ON)
-    `uvm_field_int(ldst_wdata,    UVM_ALL_ON)
-    `uvm_field_int(ldst_wstrb,    UVM_ALL_ON)
-    `uvm_field_int(prev_addr,     UVM_ALL_ON)
-    `uvm_field_int(ldst_rdata,    UVM_ALL_ON)
-    `uvm_field_int(is_hit,        UVM_ALL_ON)
-    `uvm_field_int(latency,       UVM_ALL_ON)
+    `uvm_field_int(ldst_wdata, UVM_ALL_ON)
+    `uvm_field_int(ldst_wstrb, UVM_ALL_ON)
+    `uvm_field_int(prev_addr, UVM_ALL_ON)
+    `uvm_field_int(ldst_rdata, UVM_ALL_ON)
+    `uvm_field_int(is_hit, UVM_ALL_ON)
+    `uvm_field_int(latency, UVM_ALL_ON)
   `uvm_object_utils_end
 
   // ----------------------------------------
@@ -51,7 +49,7 @@ class dcache_cpu_seq_item extends uvm_sequence_item;
 
   // same set, different tag (set conflict / eviction scenario)
   constraint c_conflict {
-    ldst_addr[11:6]  == prev_addr[11:6];
+    ldst_addr[11:6] == prev_addr[11:6];
     ldst_addr[31:12] != prev_addr[31:12];
   }
 
